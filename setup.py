@@ -13,8 +13,19 @@ with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
 with open(os.path.join(here, 'CHANGES.md'), encoding='utf-8') as f:
     CHANGES = f.read()
 
+# Dépendances pour l'exécution
 requires = [
     'numpy',
+]
+
+# Dépendandes pour les développements
+dev_require = [
+    'jupyter',
+]
+
+# Développements pour les tests
+test_require = [
+    'pytest',
 ]
 
 setup(
@@ -35,5 +46,10 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     python_requires='>=3.6',
+    extras_require={
+        'dev': dev_require,
+        'test': test_require,
+    },
+    test_suite='mon_package.tests',
 
 )
